@@ -1,0 +1,5 @@
+# LaTeX build byproducts — output/ keeps only the .tex sources and compiled .pdf
+*.aux
+*.log
+*.out
+*.toc

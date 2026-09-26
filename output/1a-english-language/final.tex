@@ -13,6 +13,7 @@
 \linespread{1.15}
 \setlength{\parindent}{0pt}
 \clubpenalty=10000 \widowpenalty=10000
+\emergencystretch=3em   % Telugu has no hyphenation patterns; lines break only at spaces
 
 % Questions: \Q{12} starts question 12 inside a questions environment.
 \newenvironment{questions}{%
@@ -25,8 +26,9 @@
 \newcommand{\Q}[1]{\needspace{5\baselineskip}\item[#1.]}
 
 \newcommand{\enu}[1]{\en{\underline{#1}}}             % English word underlined in the source
+\newcommand{\tw}[2]{#1 \en{(\underline{#2})}}          % tested word: Telugu meaning (English as underlined in source)
+\newcommand{\eng}[1]{\par\en{(#1)}}                    % English original of a sentence being tested
 \newcommand{\blank}{\rule[-1pt]{3em}{0.5pt}}           % fill-in blank
-\newcommand{\bhavam}[1]{\par{\color{black!65}భావం: #1}\par} % Telugu meaning of an English sentence
 
 % Options: 4 in one row when all are short, 2 per row when any is medium,
 % one per row when any is too long for half a line.

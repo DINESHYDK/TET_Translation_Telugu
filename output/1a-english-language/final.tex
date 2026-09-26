@@ -1,0 +1,82 @@
+% T.E.T Practice Question Bank — SUBJECT – 1A ENGLISH LANGUAGE — Telugu translation
+% Source: source-pdfs/SUBJECT – 1A ENGLISH LANGUAGE.pdf (130 pages, 630 questions)
+% Build from this folder with XeLaTeX:  xelatex final.tex
+\documentclass[12pt,a4paper]{article}
+\usepackage{fontspec}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{needspace}
+\setmainfont{Noto Sans Telugu}
+\newfontfamily\englishfont{Noto Sans}[Ligatures=TeX]   % ``word'' -> curly quotes
+\newcommand{\en}[1]{{\englishfont #1}}
+\linespread{1.15}
+\setlength{\parindent}{0pt}
+\clubpenalty=10000 \widowpenalty=10000
+
+% Questions: \Q{12} starts question 12 inside a questions environment.
+\newenvironment{questions}{%
+  \begin{list}{}{%
+    \setlength{\leftmargin}{2.8em}\setlength{\labelwidth}{2.5em}%
+    \setlength{\labelsep}{0.3em}\setlength{\itemsep}{10pt}%
+    \setlength{\parsep}{3pt}\setlength{\topsep}{6pt}%
+    \renewcommand{\makelabel}[1]{\en{##1}\hfil}}}%
+  {\end{list}}
+\newcommand{\Q}[1]{\needspace{5\baselineskip}\item[#1.]}
+
+\newcommand{\enu}[1]{\en{\underline{#1}}}             % English word underlined in the source
+\newcommand{\blank}{\rule[-1pt]{3em}{0.5pt}}           % fill-in blank
+\newcommand{\bhavam}[1]{\par{\color{black!65}భావం: #1}\par} % Telugu meaning of an English sentence
+
+% Options: 4 in one row when all are short, 2 per row when any is medium,
+% one per row when any is too long for half a line.
+\newlength{\optmax}\newlength{\opttmp}
+\newcommand{\optlabel}[1]{\makebox[1.7em][l]{\en{#1.}}}
+\newcommand{\optmeasure}[2]{\settowidth{\opttmp}{\optlabel{#1}#2}%
+  \ifdim\opttmp>\optmax\setlength{\optmax}{\opttmp}\fi}
+\newcommand{\optcell}[3]{\makebox[#1][l]{\optlabel{#2}#3}}
+\newcommand{\optrow}[2]{\par\hangindent=1.7em\hangafter=1\optlabel{#1}#2\par}
+\newcommand{\opts}[4]{%
+  \par\nopagebreak
+  \setlength{\optmax}{0pt}%
+  \optmeasure{1}{#1}\optmeasure{2}{#2}\optmeasure{3}{#3}\optmeasure{4}{#4}%
+  \ifdim\optmax<\dimexpr0.25\linewidth-0.8em\relax
+    \optcell{0.25\linewidth}{1}{#1}\optcell{0.25\linewidth}{2}{#2}%
+    \optcell{0.25\linewidth}{3}{#3}\optcell{0.25\linewidth}{4}{#4}\par
+  \else\ifdim\optmax<\dimexpr0.5\linewidth-0.8em\relax
+    \optcell{0.5\linewidth}{1}{#1}\optcell{0.5\linewidth}{2}{#2}\par\nopagebreak
+    \optcell{0.5\linewidth}{3}{#3}\optcell{0.5\linewidth}{4}{#4}\par
+  \else
+    \optrow{1}{#1}\nopagebreak\optrow{2}{#2}\nopagebreak
+    \optrow{3}{#3}\nopagebreak\optrow{4}{#4}%
+  \fi\fi}
+
+\begin{document}
+
+\begin{titlepage}
+  \centering
+  \vspace*{0.28\textheight}
+  {\en{\Huge\bfseries T.E.T}\par}
+  \vspace{1.2em}
+  {\en{\LARGE PRACTICE QUESTION BANK}\par}
+  \vspace{2.5em}
+  {\en{\Large SUBJECT – 1A ENGLISH LANGUAGE}\par}
+  \vspace{1.5em}
+  {\Large తెలుగు అనువాదం\par}
+\end{titlepage}
+
+\input{chunks/c01-p002-011}
+\input{chunks/c02-p012-021}
+\input{chunks/c03-p022-031}
+\input{chunks/c04-p032-041}
+\input{chunks/c05-p042-051}
+\input{chunks/c06-p052-061}
+\input{chunks/c07-p062-071}
+\input{chunks/c08-p072-081}
+\input{chunks/c09-p082-091}
+\input{chunks/c10-p092-101}
+\input{chunks/c11-p102-111}
+\input{chunks/c12-p112-123}
+\input{chunks/c13-answer-key}
+
+\end{document}
